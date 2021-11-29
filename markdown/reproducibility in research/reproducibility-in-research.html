@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducibility in research</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Aya Mitani" />
+    <meta name="author" content="Dalla Lana School of Public Health" />
+    <meta name="date" content="2021-11-28" />
+    <script src="reproducibility-in-research_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducibility in research
+## Health Data Working Group
+### Aya Mitani
+### Dalla Lana School of Public Health
+### 2021-11-28
+
+---
+
+
+
+
+
+
+
+## Some definitions
+
+### Science
+
+&gt; knowledge about the structure and behaviour of the natural and physical world, based on **facts** that you can prove, for example by experiments (Oxford Learner's Dictionary)
+
+### Research
+
+&gt; a careful study of a subject, especially in order to discover new **facts** or information about it (Oxford Learner's Dictionary)
+
+
+
+---
+
+## Some definitions
+
+### Science
+
+&gt; knowledge about the structure and behaviour of the natural and physical world, based on **facts** that you can prove, for example by experiments (Oxford Learner's Dictionary)
+
+### Research
+
+&gt; a careful study of a subject, especially in order to discover new **facts** or information about it (Oxford Learner's Dictionary)
+
+#### AND to **rediscover** new ~~**facts** or information~~ **claims** about it 
+
+
+---
+
+## Some definitions
+
+### Science
+
+&gt; knowledge about the structure and behaviour of the natural and physical world, based on **facts** that you can prove, for example by experiments (Oxford Learner's Dictionary)
+
+### Research
+
+&gt; a careful study of a subject, especially in order to discover new **facts** or information about it (Oxford Learner's Dictionary)
+
+#### AND to **rediscover** new ~~**facts** or information~~ **claims** about it, BUT research is rarely reproduced
+&gt;  "in the field of cancer research, only about 20–25% or 11% of published studies could be validated or reproduced, and that only about 36% were reproduced in the field of psychology" (Miyakawa, 2020)
+
+.footnote[Tsuyoshi Miyakawa. No raw data, no science: another possible source of the reproducibility crisis. Molecular Brain, 13(24), 2020]
+
+
+---
+
+
+## Reproducibility crisis in research
+
+.pull-left[
+
+### Factors contributing to crisis
+
+
+* Absence of replication
+
+* Lack of transparency
+
+* Data is not generalizable
+
+* Poor quality of analysis
+&gt; "while our ability to generate data has grown dramatically, our ability to understand them has not developed at the same rate" (Peng, 2015)
+
+]
+
+.pull-right[
+&lt;img src="reproducibility-in-research_files/figure-html/unnamed-chunk-1-1.png" width="504" height="400" /&gt;
+]
+
+.footnote[Roger Peng. The reproducibility crisis in science: A statistical counterattack. Significance, 12(3):30-32, 2015]
+
+
+
+---
+
+
+## Reproducibility crisis in research
+
+.pull-left[
+
+### More factors contributing to crisis
+
+* Publication bias
+
+* Pressure to publish
+
+* Lack of training
+
+]
+
+.pull-right[
+&lt;div class="figure"&gt;
+&lt;img src="images/surveyresults.png" alt="Fig 2. Percent of participants who perceived each of seven barriers to using reproducible research practices (Harris, 2018)" width="1595" height="300" /&gt;
+&lt;p class="caption"&gt;Fig 2. Percent of participants who perceived each of seven barriers to using reproducible research practices (Harris, 2018)&lt;/p&gt;
+&lt;/div&gt;
+]
+
+
+
+.footnote[Jenine K. Harris et al. Use of reproducible research practices in public health: A survey of public health analysts. PLOS ONE, 13(9):e0202447, 2018]
+
+
+
+---
+
+## Reproducibile or replicable?
+
+- Can someone else completely **reproduce** the results, given the data and code?
+
+- Can someone else **replicate** the analysis using different data?
+
+
+
+
+---
+
+## The three R in research
+
+.pull-left[
+
+&lt;img src="images/researchtriangle.png" width="600" /&gt;
+]
+
+
+
+
+.pull-right[
+
+&gt;"While **replication** is the gold standard for confirming evidence, **reproducibility** requires fewer resources and increases **reliability**" (Harris, 2018)
+
+&gt; "Reproducible research can still be wrong" (Leek &amp; Peng, 2015)
+
+]
+
+.footnote[Jeffrey T. Leek, Roger D. Peng. Reproducible research can still be wrong. PNAS, 112(6):1645-1646, 2015]
+
+
+---
+
+## Why make research reproducible
+
+&gt;It's good to repeat and review what is good twice and thrice over. [Plato]
+
+.pull-left[
+- For **yourself**
+
+  + Build on your own work effectively and efficiently
+  
+  + Higher research impact
+  
+  + Produce more reliable research
+]
+.pull-right[
+- For **science**
+
+  + Standard to judge scientific claims
+  
+  + Encourage replication
+  
+  + Avoid effort duplication
+  
+  + Encourage cumulative knowledge development
+]
+
+
+---
+
+
+## How is research presented?
+
+How is research **presented**?
+
+- Slideshows 
+
+- Journal articles
+
+- Books
+
+- Websites
+
+These are ways to **advertise** your research!
+
+.footnote[[Reproducible Research with R and RStudio](https://radhakrishna.typepad.com/reproducible-research-with-r-and-rstudio---second-edition.pdf) by Christopher Gandrud]
+
+
+---
+
+## Bridging the gap between research and advertisement
+
+- Your **research** is the 
+&gt; "full software environment, code, and data that produced the results" (Donoho, 2010)
+
+- **Research** and **advertisement** should be combined 
+
+&lt;img src="images/then_now.png" width="800" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+
+- ~~"Data and code can be requested from the first author."~~
+
+
+
+.footnote[David L Donoho. An invitation to reproducible computational research. Biostatistics, 11(3):385–388, 2010.]
+
+
+
+---
+
+
+## In this presentation
+
+#### I will cover some basic tips to make your research more **reproducible** in `R` and `RStudio`
+
+- Set up your **project**
+
+- **Read in** data 
+
+- Automate **tables**
+
+- Use **functions** and **loops**
+
+- Develop a **package**
+
+- **Future proofing** your project
+
+
+---
+
+## Example data
+
+### NYC Reported Dog Bites 🐶
+
+
+```
+##         DateOfBite                              Breed  Age Gender SpayNeuter
+## 1  January 02 2015                   Poodle, Standard    3      M       true
+## 2  January 02 2015                              HUSKY &lt;NA&gt;      U      false
+## 3  January 02 2015                               &lt;NA&gt; &lt;NA&gt;      U      false
+## 4  January 01 2015 American Pit Bull Terrier/Pit Bull    6      M      false
+## 5  January 03 2015 American Pit Bull Terrier/Pit Bull    1      M      false
+## 6  January 05 2015 American Pit Bull Terrier/Pit Bull    1      F      false
+## 7  January 04 2015                             MORKIE    1      M      false
+## 8  January 05 2015                          Chihuahua    1      M      false
+## 9  January 04 2015                     PIT BULL MIXED &lt;NA&gt;      M      false
+## 10 January 04 2015                               &lt;NA&gt; &lt;NA&gt;      U      false
+## 11 January 02 2015                               &lt;NA&gt; &lt;NA&gt;      U      false
+## 12 January 02 2015          Cocker Spaniel Crossbreed &lt;NA&gt;      U      false
+##     Borough ZipCode
+## 1  Brooklyn   11238
+## 2  Brooklyn   11249
+## 3  Brooklyn    &lt;NA&gt;
+## 4  Brooklyn   11221
+## 5  Brooklyn   11207
+## 6  Brooklyn   11209
+## 7  Brooklyn   11220
+## 8  Brooklyn   11237
+## 9  Brooklyn   11215
+## 10 Brooklyn   11221
+## 11 Brooklyn    &lt;NA&gt;
+## 12 Brooklyn   11220
+```
+
+
+
+---
+
+## Project from RStudio
+
+#### Create your project in RStudio
+
+.pull-left[
+- File &gt; New Project &gt; ...
+
+- Create sub-folders to **organize** your project
+
+- Separate folders for
+
+  + code
+  
+  + data
+  
+  + results
+  
+  + presentation files
+  
+  + other documents
+]
+
+.pull-right[
+&lt;img src="images/projectfolders.png" width="400" /&gt;
+]
+
+
+---
+
+## Data gathering
+
+### Read in external data
+
+Are you still doing this?
+
+
+```r
+setwd("C:\\Users\\ayami\\Documents\\Talks\\Reproducibility\\data\\raw data")
+repdata &lt;- read.csv("DOHMH_Dog_Bite_Data.csv", header = TRUE)
+```
+
+NOT REPRODUCIBLE!!!!!
+
+- Doesn't work on a different machine
+
+- `C:`, `D:`, or `P:`?
+
+- `/`, `\`, or `\\` ?
+
+- Can't output object to a different folder
+
+
+---
+
+## Data gathering
+
+### `here` package to the rescue!
+
+
+```r
+library(here)
+```
+
+Directory is set to project root folder
+
+
+```r
+here()
+```
+
+```
+## [1] "C:/Users/ayami/Documents/Talks/Reproducibility"
+```
+
+Read in data from a sub-folder
+
+
+```r
+repdata &lt;- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE)
+```
+
+Output results to a different sub-folder
+
+```r
+write.csv(bite, here("data", "dogbite.csv"), row.names = FALSE)
+```
+
+
+---
+
+## Data gathering
+
+### My `create_nicedata.R` script
+
+
+```r
+#-----------------------------------------------------------------
+# Author: Aya Mitani
+# Last updated: 2021-11-24
+# What: Read in raw dog bite data, 
+#         remove incidences with missing data, 
+#         clean breed and age variables, 
+#         write new clean data
+#----------------------------------------------------------------
+
+biteraw &lt;- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE, na.strings=c(""))
+
+# create new variables, exclude missing observations, select relevant variables, etc.
+
+write.csv(bite, here("data", "dogbite.csv"), row.names = FALSE) # output new data 
+```
+
+
+---
+
+## Data gathering
+
+### My analytical data
+
+
+```r
+# read in data
+bite &lt;- read.csv(here("data", "dogbite.csv"), header = TRUE)
+bite[67:75,]
+```
+
+```
+##    UniqueID Year                              Breed Breedclean  Age Agenum
+## 67      122 2015                     HARRIER/BEAGLE     Beagle 10 M      0
+## 68      124 2015   Dachshund, Long Haired Miniature      Other    4      4
+## 69      126 2015                BOXER X W/ PIT BULL   Pit bull    8      8
+## 70      128 2015                  Yorkshire Terrier    Terrier    6      6
+## 71      130 2015                           Bull dog   Bull dog   8M      0
+## 72      132 2015 American Pit Bull Terrier/Pit Bull   Pit bull    4      4
+## 73      134 2015        BOXER/RHODESIAN RIDGEBACK X      Other    5      5
+## 74      135 2015               Chihuahua Crossbreed  Chihuahua   4M      0
+## 75      136 2015                   Poodle, Standard     Poodle    2      2
+##    Gender SpayNeuter  Borough ZipCode
+## 67      M       true Brooklyn   11235
+## 68      M       true Brooklyn   11234
+## 69      M       true Brooklyn   11231
+## 70      M       true Brooklyn   11233
+## 71      M      false Brooklyn   11213
+## 72      F       true Brooklyn   11212
+## 73      F      false Brooklyn   11214
+## 74      M      false Brooklyn   11205
+## 75      M      false Brooklyn   11213
+```
+
+
+---
+
+## Data analysis
+
+
+```r
+bite &lt;- read.csv(here("data", "dogbite.csv"), header = TRUE)
+```
+
+#### I like to create separate files for each **step** of analysis
+
+.pull-left[
+Inside `code` folder
+&lt;img src="images/insidecode.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Inside `results` folder
+&lt;img src="images/insideresults.png" width="380" height="100" style="display: block; margin: auto;" /&gt;
+]
+
+If a task relies on code from a different script,
+
+```r
+source(here("code", "another_script.R"))
+```
+
+
+
+
+---
+
+## Data analysis
+
+### Document, document, document...
+
+.pull-left[
+
+```r
+bite %&gt;%
+  # frequency of bite by breed
+  group_by(Breedclean) %&gt;%
+  summarise(n=n()) %&gt;%
+  ggplot(aes(x = reorder(Breedclean, n), y = n)) + 
+  # bar chart
+  geom_bar(stat = "identity", aes(fill = Breedclean)) + 
+  theme_classic(base_size = 12) + 
+  # remove legend
+  theme(legend.position = "none") + 
+  # name axes
+  labs(y = "Count", x = "Breed") + 
+  # flip the coordinates
+  coord_flip()
+```
+]
+
+.pull-right[
+&lt;img src="reproducibility-in-research_files/figure-html/plot-label-out-1.png" width="504" /&gt;
+]
+
+
+---
+
+## Data analysis
+
+### Document, document, document...
+
+.pull-left[
+
+```r
+bite %&gt;%
+  # frequency of bite by borough and year
+  group_by(Borough, Year) %&gt;%
+  summarise(n = n()) %&gt;%
+  # line graph
+  ggplot(aes(x = Year, y = n, color = Borough)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(y = "Count", x = "Year") + 
+  # specify x-axis ticks and labels
+  scale_x_continuous(breaks = seq(2015, 2017, by = 1)) + 
+  theme_classic(base_size = 12)
+```
+]
+
+.pull-right[
+&lt;img src="reproducibility-in-research_files/figure-html/plot-label2-out-1.png" width="504" /&gt;
+]
+
+
+---
+
+## Data analysis 
+
+#### Research question
+
+&gt; Are bites from pit bulls more likely to be by puppies, males, or spayed dogs?
+
+
+```r
+bite2 &lt;- bite %&gt;%
+  # create new dummy variables
+  mutate(Puppy = ifelse(Age &lt; 4, 1, 0),
+         Male = ifelse(Gender == "M", 1, 0),
+         Spayed = ifelse(SpayNeuter == "true", 1, 0),
+         Pitbull = ifelse(Breedclean == "Pit bull", 1, 0))
+
+# logistic regression
+glmbite &lt;- glm(Pitbull ~ Puppy + Male + Spayed, data = bite2, family = binomial("logit"))
+summary(glmbite)$coef
+```
+
+```
+##               Estimate Std. Error   z value     Pr(&gt;|z|)
+## (Intercept) -0.6265040 0.07903863 -7.926555 2.253089e-15
+## Puppy        0.2473758 0.06755955  3.661597 2.506478e-04
+## Male        -0.2670991 0.07209909 -3.704612 2.117148e-04
+## Spayed      -0.6348316 0.06712119 -9.457991 3.139153e-21
+```
+
+---
+
+## Are you still doing this?
+
+Copy &amp; paste into Word 😱
+
+&lt;img src="images/wordtable.png" width="800" style="display: block; margin: auto;" /&gt;
+
+NOT REPRODUCIBLE!!!!!
+
+
+---
+
+## `knitr` and `xtable` packages to the rescue!
+
+You wan to 
+
+- **minimize** (or eliminate) human error
+
+- use time **efficiently**
+
+- **automate** table creation with updated/new results
+
+
+```r
+library(knitr)
+```
+- `kable()` can create pretty tables from dataframes and matrices
+
+- quick and simple but limited customization ability
+
+
+```r
+library(xtable)
+```
+
+- `xtable()` converts many R objects into LaTex table code
+
+- Flexible with more customization ability 
+
+
+---
+
+## `knitr` package
+
+### Basic `kable()` options
+
+
+```r
+sumbite &lt;- summary(glmbite)
+class(sumbite$coefficients)
+```
+
+```
+## [1] "matrix" "array"
+```
+
+```r
+kable(sumbite$coefficients, format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; z value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;|z|) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6265040 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0790386 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -7.926555 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Puppy &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2473758 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0675595 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.661597 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0002506 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.2670991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0720991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -3.704612 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0002117 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Spayed &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.6348316 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0671212 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -9.457991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+## `knitr` package
+
+### More `kable()` options
+
+```r
+kable(sumbite$coefficients, 
+      format = 'html',
+      digits = 3,      # specify number of decimal places to show
+      col.names = c("Est", "SE", "Z-value", "P-value"), # edit the column names
+      align = "c",     # options for alignment are 'l' (left), 'c' (center), 'r' (right) which is the default
+      caption = "Results from logistic regression analysis") # title of the table
+```
+
+&lt;table&gt;
+&lt;caption&gt;Results from logistic regression analysis&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Est &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; SE &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Z-value &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P-value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -0.627 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.079 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -7.927 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Puppy &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.247 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.068 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3.662 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -0.267 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.072 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -3.705 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Spayed &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -0.635 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.067 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; -9.458 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+## `knitr` package
+
+.pull-left[
+### `kable()` with LaTex format 
+
+```r
+kable(sumbite$coefficients, 
+      # use latex format
+      format = 'latex',
+      # specify number of decimal places to show
+      digits = 3,  
+      # edit the column names
+      col.names = c("Est", "SE", "Z-value", "P-value"), 
+      # options for alignment are 'l' (left), 'c' (center), 'r' (right) which is the default
+      align = "c",     
+      # title of the table
+      caption = "Results from logistic regression analysis") 
+```
+]
+
+.pull-right[
+\begin{table}
+
+\caption{\label{tab:kable-out}Results from logistic regression analysis}
+\centering
+\begin{tabular}[t]{l|c|c|c|c}
+\hline
+  &amp; Est &amp; SE &amp; Z-value &amp; P-value\\
+\hline
+(Intercept) &amp; -0.627 &amp; 0.079 &amp; -7.927 &amp; 0\\
+\hline
+Puppy &amp; 0.247 &amp; 0.068 &amp; 3.662 &amp; 0\\
+\hline
+Male &amp; -0.267 &amp; 0.072 &amp; -3.705 &amp; 0\\
+\hline
+Spayed &amp; -0.635 &amp; 0.067 &amp; -9.458 &amp; 0\\
+\hline
+\end{tabular}
+\end{table}
+]
+
+
+
+---
+
+## `knitr` package
+
+### `kable()` with [reStructuredText](https://docutils.sourceforge.io/rst.html) format 
+
+```r
+kable(sumbite$coefficients, 
+      format = 'rst',
+      digits = 3,      # specify number of decimal places to show
+      col.names = c("Est", "SE", "Z-value", "P-value"), # edit the column names
+      align = "c",     # options for alignment are 'l' (left), 'c' (center), 'r' (right) which is the default
+      caption = "Results from logistic regression analysis") # title of the table
+```
+
+
+
+===========  ======  =====  =======  =======
+\             Est     SE    Z-value  P-value
+===========  ======  =====  =======  =======
+(Intercept)  -0.627  0.079  -7.927      0   
+Puppy        0.247   0.068   3.662      0   
+Male         -0.267  0.072  -3.705      0   
+Spayed       -0.635  0.067  -9.458      0   
+===========  ======  =====  =======  =======
+
+
+---
+
+## `xtable` package
+
+
+
+.left-column[
+#### Basic `xtable()` with `lm` or `glm` class objects
+
+```r
+class(glmbite) 
+```
+
+```
+## [1] "glm" "lm"
+```
+]
+
+.right-column[
+
+```r
+xtable(glmbite) 
+```
+
+```
+## % latex table generated in R 4.1.1 by xtable 1.8-4 package
+## % Sun Nov 28 21:06:57 2021
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{rrrrr}
+##   \hline
+##  &amp; Estimate &amp; Std. Error &amp; z value &amp; Pr($&gt;$$|$z$|$) \\ 
+##   \hline
+## (Intercept) &amp; -0.6265 &amp; 0.0790 &amp; -7.93 &amp; 0.0000 \\ 
+##   Puppy &amp; 0.2474 &amp; 0.0676 &amp; 3.66 &amp; 0.0003 \\ 
+##   Male &amp; -0.2671 &amp; 0.0721 &amp; -3.70 &amp; 0.0002 \\ 
+##   Spayed &amp; -0.6348 &amp; 0.0671 &amp; -9.46 &amp; 0.0000 \\ 
+##    \hline
+## \end{tabular}
+## \end{table}
+```
+]
+
+
+---
+
+## `xtable` package
+
+.pull-left[
+#### Some `xtable()` customizations
+
+```r
+table1 &lt;- 
+xtable(glmbite,
+       # title of the table
+       caption = "Results from logistic regression analysis",
+       # label for referencing 
+       label = "table:logreg",
+       # number of decimal places
+       digits = 2
+       ) 
+print.xtable(table1)
+```
+
+- Include in Rmarkdown file with PDF output
+
+- Copy &amp; paste into LaTex editor, [Overleaf](https://www.overleaf.com)
+]
+
+
+
+.pull-right[
+
+```
+## % latex table generated in R 4.1.1 by xtable 1.8-4 package
+## % Sun Nov 28 21:06:57 2021
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{rrrrr}
+##   \hline
+##  &amp; Estimate &amp; Std. Error &amp; z value &amp; Pr($&gt;$$|$z$|$) \\ 
+##   \hline
+## (Intercept) &amp; -0.63 &amp; 0.08 &amp; -7.93 &amp; 0.00 \\ 
+##   Puppy &amp; 0.25 &amp; 0.07 &amp; 3.66 &amp; 0.00 \\ 
+##   Male &amp; -0.27 &amp; 0.07 &amp; -3.70 &amp; 0.00 \\ 
+##   Spayed &amp; -0.63 &amp; 0.07 &amp; -9.46 &amp; 0.00 \\ 
+##    \hline
+## \end{tabular}
+## \caption{Results from logistic regression analysis} 
+## \label{table:logreg}
+## \end{table}
+```
+]
+
+
+---
+
+## `xtable` package
+
+### `print.table()` has even more options
+
+#### Save LaTex code as text file
+
+```r
+print.xtable(table1, file = here("results", "table1.txt"))
+```
+
+---
+
+## `xtable` package
+
+### `print.table()` has even more options
+
+#### Create HTML table
+
+```r
+print.xtable(table1, type = "html", caption.placement = "top")
+```
+
+```
+## &lt;!-- html table generated in R 4.1.1 by xtable 1.8-4 package --&gt;
+## &lt;!-- Sun Nov 28 21:06:57 2021 --&gt;
+## &lt;table border=1&gt;
+## &lt;caption align="top"&gt; Results from logistic regression analysis &lt;/caption&gt;
+## &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; z value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|z|) &lt;/th&gt;  &lt;/tr&gt;
+##   &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; -0.63 &lt;/td&gt; &lt;td align="right"&gt; 0.08 &lt;/td&gt; &lt;td align="right"&gt; -7.93 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+##   &lt;tr&gt; &lt;td align="right"&gt; Puppy &lt;/td&gt; &lt;td align="right"&gt; 0.25 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; 3.66 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+##   &lt;tr&gt; &lt;td align="right"&gt; Male &lt;/td&gt; &lt;td align="right"&gt; -0.27 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; -3.70 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+##   &lt;tr&gt; &lt;td align="right"&gt; Spayed &lt;/td&gt; &lt;td align="right"&gt; -0.63 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; -9.46 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+##    &lt;/table&gt;
+```
+
+---
+
+## `xtable` package
+
+### `print.table()` has even more options
+
+#### Create HTML table
+
+&lt;!-- html table generated in R 4.1.1 by xtable 1.8-4 package --&gt;
+&lt;!-- Thu Nov 25 19:44:07 2021 --&gt;
+&lt;table border=1&gt;
+&lt;caption align="top"&gt; Results from logistic regression analysis &lt;/caption&gt;
+&lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; z value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|z|) &lt;/th&gt;  &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; (Intercept) &lt;/td&gt; &lt;td align="right"&gt; -0.63 &lt;/td&gt; &lt;td align="right"&gt; 0.08 &lt;/td&gt; &lt;td align="right"&gt; -7.93 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; Puppy &lt;/td&gt; &lt;td align="right"&gt; 0.25 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; 3.66 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; Male &lt;/td&gt; &lt;td align="right"&gt; -0.27 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; -3.70 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+  &lt;tr&gt; &lt;td align="right"&gt; Spayed &lt;/td&gt; &lt;td align="right"&gt; -0.63 &lt;/td&gt; &lt;td align="right"&gt; 0.07 &lt;/td&gt; &lt;td align="right"&gt; -9.46 &lt;/td&gt; &lt;td align="right"&gt; 0.00 &lt;/td&gt; &lt;/tr&gt;
+   &lt;/table&gt;
+
+---
+
+## [`texreg`](https://www.jstatsoft.org/article/view/v055i08) package for multiple models
+
+#### I want to compare results from these three models
+
+```r
+# m1: x = Puppy
+m1 &lt;- glm(Pitbull ~ Puppy, data = bite2, family = binomial("logit"))
+# m2: x = Puppy &amp; Male
+m2 &lt;- glm(Pitbull ~ Puppy + Male, data = bite2, family = binomial("logit"))
+# m3: x = Puppy &amp; Male &amp; Spayed
+m3 &lt;- glm(Pitbull ~ Puppy + Male + Spayed, data = bite2, family = binomial("logit"))
+```
+
+---
+
+## [`texreg`](https://www.jstatsoft.org/article/view/v055i08) package for multiple models
+
+.left-column[
+#### `screenreg()` for text output to the R console
+
+
+```r
+screenreg(list(m1, m2, m3))
+```
+]
+.right-column[
+
+```
+## 
+## ========================================================
+##                 Model 1       Model 2       Model 3     
+## --------------------------------------------------------
+## (Intercept)        -1.15 ***     -0.97 ***     -0.63 ***
+##                    (0.05)        (0.07)        (0.08)   
+## Puppy               0.29 ***      0.29 ***      0.25 ***
+##                    (0.07)        (0.07)        (0.07)   
+## Male                             -0.26 ***     -0.27 ***
+##                                  (0.07)        (0.07)   
+## Spayed                                         -0.63 ***
+##                                                (0.07)   
+## --------------------------------------------------------
+## AIC              5449.95       5439.24       5350.44    
+## BIC              5462.85       5458.59       5376.24    
+## Log Likelihood  -2722.97      -2716.62      -2671.22    
+## Deviance         5445.95       5433.24       5342.44    
+## Num. obs.        4673          4673          4673       
+## ========================================================
+## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05
+```
+]
+
+
+---
+
+## [`texreg`](https://www.jstatsoft.org/article/view/v055i08) package for multiple models
+
+.left-column[
+#### Display 95% confidence intervals 
+
+
+```r
+screenreg(list(m1, m2, m3), 
+          ci.force = TRUE)
+```
+]
+.right-column[
+
+```
+## 
+## ==============================================================
+##                 Model 1         Model 2         Model 3       
+## --------------------------------------------------------------
+## (Intercept)        -1.15 *         -0.97 *         -0.63 *    
+##                 [-1.25; -1.05]  [-1.11; -0.83]  [-0.78; -0.47]
+## Puppy               0.29 *          0.29 *          0.25 *    
+##                 [ 0.16;  0.42]  [ 0.16;  0.42]  [ 0.11;  0.38]
+## Male                               -0.26 *         -0.27 *    
+##                                 [-0.40; -0.12]  [-0.41; -0.13]
+## Spayed                                             -0.63 *    
+##                                                 [-0.77; -0.50]
+## --------------------------------------------------------------
+## AIC              5449.95         5439.24         5350.44      
+## BIC              5462.85         5458.59         5376.24      
+## Log Likelihood  -2722.97        -2716.62        -2671.22      
+## Deviance         5445.95         5433.24         5342.44      
+## Num. obs.        4673            4673            4673         
+## ==============================================================
+## * Null hypothesis value outside the confidence interval.
+```
+]
+
+
+---
+
+## [`texreg`](https://www.jstatsoft.org/article/view/v055i08) package for multiple models
+
+.left-column[
+#### `texreg()` for LaTex output
+
+
+```r
+texreg(list(m1, m2, m3), 
+       caption = "Dog bite models")
+```
+]
+.right-column[
+
+```
+## 
+## \begin{table}
+## \begin{center}
+## \begin{tabular}{l c c c}
+## \hline
+##  &amp; Model 1 &amp; Model 2 &amp; Model 3 \\
+## \hline
+## (Intercept)    &amp; $-1.15^{***}$ &amp; $-0.97^{***}$ &amp; $-0.63^{***}$ \\
+##                &amp; $(0.05)$      &amp; $(0.07)$      &amp; $(0.08)$      \\
+## Puppy          &amp; $0.29^{***}$  &amp; $0.29^{***}$  &amp; $0.25^{***}$  \\
+##                &amp; $(0.07)$      &amp; $(0.07)$      &amp; $(0.07)$      \\
+## Male           &amp;               &amp; $-0.26^{***}$ &amp; $-0.27^{***}$ \\
+##                &amp;               &amp; $(0.07)$      &amp; $(0.07)$      \\
+## Spayed         &amp;               &amp;               &amp; $-0.63^{***}$ \\
+##                &amp;               &amp;               &amp; $(0.07)$      \\
+## \hline
+## AIC            &amp; $5449.95$     &amp; $5439.24$     &amp; $5350.44$     \\
+## BIC            &amp; $5462.85$     &amp; $5458.59$     &amp; $5376.24$     \\
+## Log Likelihood &amp; $-2722.97$    &amp; $-2716.62$    &amp; $-2671.22$    \\
+## Deviance       &amp; $5445.95$     &amp; $5433.24$     &amp; $5342.44$     \\
+## Num. obs.      &amp; $4673$        &amp; $4673$        &amp; $4673$        \\
+## \hline
+## \multicolumn{4}{l}{\scriptsize{$^{***}p&lt;0.001$; $^{**}p&lt;0.01$; $^{*}p&lt;0.05$}}
+## \end{tabular}
+## \caption{Dog bite models}
+## \label{table:coefficients}
+## \end{center}
+## \end{table}
+```
+]
+
+---
+
+## [`texreg`](https://www.jstatsoft.org/article/view/v055i08) package for multiple models
+
+#### `htmlreg()` for HTML output
+
+
+```r
+htmlreg(list(m1, m2, m3), caption = "Dog bite models")
+```
+
+```
+## &lt;table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;caption-side: bottom;color: #000000;border-top: 2px solid #000000;"&gt;
+## &lt;caption&gt;Dog bite models&lt;/caption&gt;
+## &lt;thead&gt;
+## &lt;tr&gt;
+## &lt;th style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/th&gt;
+## &lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 1&lt;/th&gt;
+## &lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 2&lt;/th&gt;
+## &lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 3&lt;/th&gt;
+## &lt;/tr&gt;
+## &lt;/thead&gt;
+## &lt;tbody&gt;
+## &lt;tr style="border-top: 1px solid #000000;"&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(Intercept)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-1.15&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.97&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.63&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.05)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.08)&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Puppy&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.29&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.29&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.25&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Male&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.26&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.27&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Spayed&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.63&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr style="border-top: 1px solid #000000;"&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;AIC&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5449.95&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5439.24&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5350.44&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;BIC&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5462.85&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5458.59&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5376.24&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Log Likelihood&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2722.97&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2716.62&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2671.22&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Deviance&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5445.95&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5433.24&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5342.44&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;tr style="border-bottom: 2px solid #000000;"&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Num. obs.&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+## &lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;/tbody&gt;
+## &lt;tfoot&gt;
+## &lt;tr&gt;
+## &lt;td style="font-size: 0.8em;" colspan="4"&gt;&lt;sup&gt;***&lt;/sup&gt;p &amp;lt; 0.001; &lt;sup&gt;**&lt;/sup&gt;p &amp;lt; 0.01; &lt;sup&gt;*&lt;/sup&gt;p &amp;lt; 0.05&lt;/td&gt;
+## &lt;/tr&gt;
+## &lt;/tfoot&gt;
+## &lt;/table&gt;
+```
+
+---
+
+.left-column[
+### HTML table from `htmlreg()` 
+]
+
+.right-column[
+&lt;table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;caption-side: bottom;color: #000000;border-top: 2px solid #000000;"&gt;
+&lt;caption&gt;Dog bite models&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 1&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 2&lt;/th&gt;
+&lt;th style="padding-left: 5px;padding-right: 5px;"&gt;Model 3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(Intercept)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-1.15&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.97&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.63&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.05)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.08)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Puppy&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.29&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.29&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;0.25&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Male&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.26&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.27&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Spayed&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-0.63&lt;sup&gt;***&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;(0.07)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-top: 1px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;AIC&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5449.95&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5439.24&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5350.44&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;BIC&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5462.85&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5458.59&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5376.24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Log Likelihood&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2722.97&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2716.62&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;-2671.22&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Deviance&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5445.95&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5433.24&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;5342.44&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr style="border-bottom: 2px solid #000000;"&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;Num. obs.&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+&lt;td style="padding-left: 5px;padding-right: 5px;"&gt;4673&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;td style="font-size: 0.8em;" colspan="4"&gt;&lt;sup&gt;***&lt;/sup&gt;p &amp;lt; 0.001; &lt;sup&gt;**&lt;/sup&gt;p &amp;lt; 0.01; &lt;sup&gt;*&lt;/sup&gt;p &amp;lt; 0.05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;
+]
+
+
+
+
+---
+
+## Writing R functions
+
+#### I want to show **Odds Ratio (95% CI)** for the table
+
+In logistic regression,
+
+$$
+\text{OR} = \exp(\hat{\beta})
+$$
+
+
+```r
+OR &lt;- exp(beta)
+```
+
+
+
+$$
+95\% \text{ CI} =  \text{exp} \left[ \hat{\beta} \pm 1.96 \times \text{SE}(\hat{\beta})  \right]
+$$
+
+```r
+ORlcl &lt;- exp(beta - 1.96 * se_beta)
+ORucl &lt;- exp(beta + 1.96 * se_beta)
+```
+
+
+---
+
+## Are you still doing this?
+
+
+```r
+# OR for m1
+OR_m1 &lt;- exp(summary(m1)$coefficients[,1])
+ORlcl_m1 &lt;- exp(summary(m1)$coefficients[,1] - 1.96 * summary(m1)$coefficients[,2])
+ORucl_m1 &lt;- exp(summary(m1)$coefficients[,1] + 1.96 * summary(m1)$coefficients[,2])
+
+# OR for m2
+OR_m2 &lt;- exp(summary(m2)$coefficients[,1])
+ORlcl_m2 &lt;- exp(summary(m2)$coefficients[,1] - 1.96 * summary(m2)$coefficients[,2])
+ORucl_m2 &lt;- exp(summary(m2)$coefficients[,1] + 1.96 * summary(m2)$coefficients[,2])
+
+# OR for m3
+OR_m3 &lt;- exp(summary(m3)$coefficients[,1])
+ORlcl_m3 &lt;- exp(summary(m3)$coefficients[,1] - 1.96 * summary(m3)$coefficients[,2])
+ORucl_m3 &lt;- exp(summary(m3)$coefficients[,1] + 1.96 * summary(m3)$coefficients[,2])
+```
+
+NOT REPRODUCIBLE!!!
+
+---
+
+## Writing R functions
+
+#### A function to create OR (95%) with options for `\(\alpha\)` level and number of decimal places
+
+
+```r
+# coef is the vector of estimates
+# se is the vector of standard errors
+# siglevel is the significance (alpha) level
+# roundto is the number of decimal places
+OR_95CI &lt;- function(coef, se, siglevel, roundto){
+  q &lt;- 1 - siglevel / 2
+  OR &lt;- exp(coef)
+  ORlcl &lt;- exp(coef - qnorm(q) * se)
+  ORucl &lt;- exp(coef + qnorm(q) * se)
+  ORresult &lt;- paste0(format(round(OR, roundto), nsmall=roundto), " (", format(round(ORlcl, roundto), nsmall=roundto), ", ", format(round(ORucl, roundto), nsmall=roundto), ")")
+  return(ORresult)
+}
+orout1 &lt;- OR_95CI(summary(m1)$coef[,1], summary(m1)$coef[,2], 0.05, 2)
+orout1
+```
+
+```
+## [1] "0.32 (0.29, 0.35)" "1.34 (1.18, 1.53)"
+```
+
+---
+
+## Using loops in R
+
+#### Lists are **very** useful in R
+
+
+```r
+m &lt;- list()
+m[[1]] &lt;- glm(Pitbull ~ Puppy, data = bite2, family = binomial("logit"))
+m[[2]] &lt;- glm(Pitbull ~ Puppy + Male, data = bite2, family = binomial("logit"))
+m[[3]] &lt;- glm(Pitbull ~ Puppy + Male + Spayed, data = bite2, family = binomial("logit"))
+msum &lt;- lapply(m, summary)
+msum[[1]]$coef
+```
+
+```
+##               Estimate Std. Error    z value      Pr(&gt;|z|)
+## (Intercept) -1.1509406 0.05055684 -22.765281 1.012824e-114
+## Puppy        0.2942141 0.06667320   4.412779  1.020521e-05
+```
+
+```r
+msum[[1]]$coef[,1]
+```
+
+```
+## (Intercept)       Puppy 
+##  -1.1509406   0.2942141
+```
+
+---
+
+## Using loops in R
+
+#### Lists are **very** useful in R
+
+```r
+orvec &lt;- list()
+for(i in 1:3) orvec[[i]] &lt;- OR_95CI(msum[[i]]$coef[,1], msum[[i]]$coef[,2], 0.05, 2)
+orvec
+```
+
+```
+## [[1]]
+## [1] "0.32 (0.29, 0.35)" "1.34 (1.18, 1.53)"
+## 
+## [[2]]
+## [1] "0.38 (0.33, 0.43)" "1.34 (1.18, 1.53)" "0.77 (0.67, 0.89)"
+## 
+## [[3]]
+## [1] "0.53 (0.46, 0.62)" "1.28 (1.12, 1.46)" "0.77 (0.66, 0.88)"
+## [4] "0.53 (0.46, 0.60)"
+```
+
+
+---
+
+## Back to `xtable`
+
+
+```r
+varnames &lt;- c("Intercept", "Puppy", "Male", "Spayed") # create vector of variable names
+ORout &lt;- data.frame(varnames, c(orvec[[1]], rep(NA, 2)), c(orvec[[2]], NA), orvec[[3]]) # create data frame of ORs
+names(ORout) &lt;- c("Variable", "M1", "M2", "M3") # give column names
+ORtable &lt;- xtable(ORout[-1,], caption = "OR (95% CI)") # create xtable object but remove Intercept
+print(ORtable, include.rownames = FALSE) # print xtable but remove row numbers
+```
+
+```
+## % latex table generated in R 4.1.1 by xtable 1.8-4 package
+## % Sun Nov 28 21:06:58 2021
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{llll}
+##   \hline
+## Variable &amp; M1 &amp; M2 &amp; M3 \\ 
+##   \hline
+## Puppy &amp; 1.34 (1.18, 1.53) &amp; 1.34 (1.18, 1.53) &amp; 1.28 (1.12, 1.46) \\ 
+##   Male &amp;  &amp; 0.77 (0.67, 0.89) &amp; 0.77 (0.66, 0.88) \\ 
+##   Spayed &amp;  &amp;  &amp; 0.53 (0.46, 0.60) \\ 
+##    \hline
+## \end{tabular}
+## \caption{OR (95% CI)} 
+## \end{table}
+```
+
+
+---
+
+## Output of `xtable`
+
+&lt;img src="images/ORtable.png" width="800" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+
+## R function to R package
+
+#### I want to keep using `OR_95CI()` function for my other projects!
+
+
+```r
+OR_95CI &lt;- function(coef, se, siglevel, roundto){
+  q &lt;- 1 - siglevel / 2
+  OR &lt;- exp(coef)
+  ORlcl &lt;- exp(coef - qnorm(q) * se)
+  ORucl &lt;- exp(coef + qnorm(q) * se)
+  ORresult &lt;- paste0(format(round(OR, roundto), nsmall=roundto), " (", format(round(ORlcl, roundto), nsmall=roundto), ", ", format(round(ORucl, roundto), nsmall=roundto), ")")
+  return(ORresult)
+}
+```
+
+- Save the R script on my computer and copy &amp; paste it for every project `\(\rightarrow\)` NOT REPRODUCIBLE!!!
+
+- I have some other related R functions that I often use
+
+- Turn them into a **R package** and save it on my **GitHub** account
+
+---
+
+## Creating R packages
+
+#### Use `devtools` package
+
+
+```r
+library(devtools)
+```
+**Major steps** (More details [here](https://rpubs.com/ayamitani/rpackage))
+1. Open R Studio
+    + New Project &gt; New Directory &gt; R Package &gt; Enter info &gt; Create Project
+2. Edit your package
+    + Each function should be saved in its own file
+    + Write the package description and document functions
+    + Include some data
+    + Write a vignette
+3. Create a new repository in GitHub
+    + Repo name = package name
+4. Connect to GitHub
+5. Pull + Commit + Push
+6. Use/share package with `install_github()`
+
+
+---
+
+## Using my R package
+
+#### Install and load package from GitHub
+
+
+```r
+library(devtools) # load devtools package
+devtools::install_github("ayamitani/oddsratio") # install package from git repo
+library(oddsratio) # load package
+```
+
+
+```r
+# new logistic regression model
+m4 &lt;- glm(Pitbull ~ Agenum, data = bite2, family = binomial("logit"))
+# save table of coefficients and standard errors from summary output
+m4coef &lt;- summary(m4)$coef
+# apply function
+OR_95CI(m4coef[,1], m4coef[,2], 0.05, 3)
+```
+
+```
+## [1] "0.576 (0.518, 0.641)" "0.899 (0.880, 0.919)"
+```
+
+
+
+
+---
+
+## Publishing R package on CRAN
+
+- The [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/) has ~18,000 R packages 
+
+- Package on CRAN can be downloaded with `install.packages()`
+
+- Publishing your R package on CRAN requires a lot more work than making it available on GitHub
+
+- Going through all the necessary steps, your package will be more **accessible** to a wider audience
+
+
+
+---
+
+## Publishing R package on CRAN
+
+
+- Read the [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html) and [Checklist for CRAN submissions](https://cran.r-project.org/web/packages/submission_checklist.html)
+
+- Follow [@CRANPolicyWatch](https://twitter.com/CRANPolicyWatch) on Twitter
+
+- Submit your package using the [submission form](https://cran.r-project.org/submit.html)
+
+- CRAN maintainer will review your package 
+
+  + Review can take up to 5 days (check status [here](https://cran.r-project.org/web/checks/check_summary_by_maintainer.html))
+  + You package may get rejected `\(\rightarrow\)` revise, recheck and resubmit
+  
+- Write an article describing your package
+
+  + Your own website
+  + Research paper
+  + Software journals ([Journal of Statistical Software](https://www.jstatsoft.org/index), [The R Journal](The R Journalhttps://journal.r-project.org), [Journal of Open Source Software](https://joss.theoj.org/))
+  
+
+
+---
+
+## Future proof your research
+
+- Record your R session information
+
+```r
+sessionInfo()
+```
+
+- Set seed for random generation
+
+```r
+set.seed()
+```
+
+- Save everything as text files (`.txt`)
+
+- Make your code **human** readable
+
+  + [`formatR`](https://yihui.org/formatr/) package is useful 
+
+```r
+library(formatR)
+```
+
+- Document, document, document...
+
+
+---
+
+## Final thoughts
+
+- I'm still learning
+
+- Normalize making research reproducible
+
+  + **Teach** the tools 
+
+  + **Train** the new generation of researchers
+  
+  + **Practice** reproducibility
+
+- Contribute more to replicating research
+
+  + Change the institutional culture from bottom up!
+
+
+---
+
+## This presentation is reproducible!
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+
+---
+
+
+## Very new `sjPlot` package can show odds ratios
+
+#### [`tab_model()`](https://strengejacke.github.io/sjPlot/articles/tab_model_estimates.html) can create very nice tables with OR (95% CI)
+
+
+```r
+#tab_model(m1, m2, m3, show.p = FALSE)
+```
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+## Very new `sjPlot` package can show odds ratios
+
+#### [`tab_model()`](https://strengejacke.github.io/sjPlot/articles/tab_model_estimates.html) can create very nice tables with OR (95% CI)
+
+```{r}
+#tab_model(m1, m2, m3, show.p = FALSE)
+```
+
+
+---
+
+
+## Reproducibility - Local vs Global
+
+- **Local** 
+
+    + Can you reproduce the results on the same machine?
+    
+    + Can someone else reproduce the results on the same machine?
+  
+- **Global**
+
+    + Can you reproduce the results on a different machine?
+    
+    + Can someone else reproduce the results on a different machine?
+    
+    
+    
+
+---
+
+
+
+
+
+
+## How to make research reproducible
+
+- Keep reproducibility in mind from the beginning
+
+  + Document **EVERYTHING**
+
+```{r}
+# what are you doing in each line of code?
+```
+
+
+- Use a project oriented workflow
+
+  + Data gathering
+  
+  + Data analysis
+  
+  + Results presentation
+
+- Use Project in R Studio!
+
+- Make your data and code publicly available
+
+
+---
+
+## How to make research more reliable
+
+- Make it **reproducible**
+> "Reproducible research can still be wrong" (Leek & Peng, 2015)
+
+- Work with a diverse team
+
+- Learn from experts
+
+
+
+.footnote[Jeffrey T. Leek, Roger D. Peng. Reproducible research can still be wrong. PNAS, 112(6):1645-1646, 2015]
+
+
+---
+
+## How to make research more replicable
+
+- This is the hardest 
+
+- Repeat analysis on a new and different sample
+
+- Wait until someone else tries to replicate your research
+
+  + Helps if your research is **reproducible**
+  
