@@ -175,7 +175,7 @@ knitr::include_graphics("images/surveyresults.png", )
 
 ---
 
-## The three R in research
+## The three Rs in research
 
 .pull-left[
 
@@ -309,7 +309,7 @@ rawbite[1:12,c(-1,-3)]
 
 ## Project from RStudio
 
-#### Create your project in RStudio
+#### Create your [project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects) in [RStudio](https://www.rstudio.com/)
 
 .pull-left[
 - File > New Project > ...
@@ -379,7 +379,7 @@ here()
 Read in data from a sub-folder
 
 ```{r, eval = FALSE}
-repdata <- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE)
+biteraw <- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE)
 ```
 
 Output results to a different sub-folder
@@ -483,7 +483,7 @@ bite %>%
 ]
 
 .pull-right[
-```{r plot-label-out, ref.label="plot-label", echo=FALSE, fig.height = 5}
+```{r plot-label-out, ref.label="plot-label", echo=FALSE, fig.height = 5, fig.cap = "Which breed had the most number of reportings?"}
 ```
 ]
 
@@ -512,7 +512,7 @@ bite %>%
 ]
 
 .pull-right[
-```{r plot-label2-out, ref.label="plot-label2", echo=FALSE, fig.height = 5}
+```{r plot-label2-out, ref.label="plot-label2", echo=FALSE, fig.height = 5, fig.cap = "Trend in dog bite reporting by NYC boroughs"}
 ```
 ]
 
@@ -637,20 +637,6 @@ kable(sumbite$coefficients,
 
 ---
 
-## `knitr` package
-
-### `kable()` with [reStructuredText](https://docutils.sourceforge.io/rst.html) format 
-```{r}
-kable(sumbite$coefficients, 
-      format = 'rst',
-      digits = 3,      # specify number of decimal places to show
-      col.names = c("Est", "SE", "Z-value", "P-value"), # edit the column names
-      align = "c",     # options for alignment are 'l' (left), 'c' (center), 'r' (right) which is the default
-      caption = "Results from logistic regression analysis") # title of the table
-```
-
-
----
 
 ## `xtable` package
 
@@ -706,7 +692,7 @@ print.xtable(table1)
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Save LaTex code as text file
 ```{r, eval = FALSE}
@@ -717,7 +703,7 @@ print.xtable(table1, file = here("results", "table1.txt"))
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Create HTML table
 ```{r}
@@ -728,7 +714,7 @@ print.xtable(table1, type = "html", caption.placement = "top")
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Create HTML table
 
@@ -1107,7 +1093,7 @@ library(devtools)
 
 ## Using my R package
 
-#### Install and load package from GitHub
+#### Install and load package from [GitHub](https://github.com/ayamitani/oddsratio)
 
 ```{r, eval = FALSE}
 library(devtools) # load devtools package
@@ -1211,22 +1197,18 @@ library(formatR)
 
 
 ---
+class: center, middle
 
 ## This presentation is reproducible!
+
+
+### From my GitHub Repo [Reproducibility](https://github.com/ayamitani/Reproducibility)
+
+
 
 Slides created via the R packages:
 
 [**xaringan**](https://github.com/yihui/xaringan)<br>
 [gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
 
----
-
-
-## Very new `sjPlot` package can show odds ratios
-
-#### [`tab_model()`](https://strengejacke.github.io/sjPlot/articles/tab_model_estimates.html) can create very nice tables with OR (95% CI)
-
-```{r}
-#tab_model(m1, m2, m3, show.p = FALSE)
-```
 

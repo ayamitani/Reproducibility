@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Aya Mitani" />
     <meta name="author" content="Dalla Lana School of Public Health" />
-    <meta name="date" content="2021-11-28" />
+    <meta name="date" content="2021-11-29" />
     <script src="reproducibility-in-research_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 ## Health Data Working Group
 ### Aya Mitani
 ### Dalla Lana School of Public Health
-### 2021-11-28
+### 2021-11-29
 
 ---
 
@@ -144,7 +144,7 @@ class: center, middle, inverse, title-slide
 
 ---
 
-## The three R in research
+## The three Rs in research
 
 .pull-left[
 
@@ -299,7 +299,7 @@ These are ways to **advertise** your research!
 
 ## Project from RStudio
 
-#### Create your project in RStudio
+#### Create your [project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects) in [RStudio](https://www.rstudio.com/)
 
 .pull-left[
 - File &gt; New Project &gt; ...
@@ -368,14 +368,14 @@ here()
 ```
 
 ```
-## [1] "C:/Users/ayami/Documents/Talks/Reproducibility"
+## [1] "C:/Users/ayami/Desktop/Version Control/Reproducibility"
 ```
 
 Read in data from a sub-folder
 
 
 ```r
-repdata &lt;- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE)
+biteraw &lt;- read.csv(here("data", "raw data", "DOHMH_Dog_Bite_Data.csv"), header = TRUE)
 ```
 
 Output results to a different sub-folder
@@ -504,7 +504,10 @@ bite %&gt;%
 ]
 
 .pull-right[
-&lt;img src="reproducibility-in-research_files/figure-html/plot-label-out-1.png" width="504" /&gt;
+&lt;div class="figure"&gt;
+&lt;img src="reproducibility-in-research_files/figure-html/plot-label-out-1.png" alt="Which breed had the most number of reportings?" width="504" /&gt;
+&lt;p class="caption"&gt;Which breed had the most number of reportings?&lt;/p&gt;
+&lt;/div&gt;
 ]
 
 
@@ -533,7 +536,10 @@ bite %&gt;%
 ]
 
 .pull-right[
-&lt;img src="reproducibility-in-research_files/figure-html/plot-label2-out-1.png" width="504" /&gt;
+&lt;div class="figure"&gt;
+&lt;img src="reproducibility-in-research_files/figure-html/plot-label2-out-1.png" alt="Trend in dog bite reporting by NYC boroughs" width="504" /&gt;
+&lt;p class="caption"&gt;Trend in dog bite reporting by NYC boroughs&lt;/p&gt;
+&lt;/div&gt;
 ]
 
 
@@ -777,32 +783,6 @@ Spayed &amp; -0.635 &amp; 0.067 &amp; -9.458 &amp; 0\\
 
 ---
 
-## `knitr` package
-
-### `kable()` with [reStructuredText](https://docutils.sourceforge.io/rst.html) format 
-
-```r
-kable(sumbite$coefficients, 
-      format = 'rst',
-      digits = 3,      # specify number of decimal places to show
-      col.names = c("Est", "SE", "Z-value", "P-value"), # edit the column names
-      align = "c",     # options for alignment are 'l' (left), 'c' (center), 'r' (right) which is the default
-      caption = "Results from logistic regression analysis") # title of the table
-```
-
-
-
-===========  ======  =====  =======  =======
-\             Est     SE    Z-value  P-value
-===========  ======  =====  =======  =======
-(Intercept)  -0.627  0.079  -7.927      0   
-Puppy        0.247   0.068   3.662      0   
-Male         -0.267  0.072  -3.705      0   
-Spayed       -0.635  0.067  -9.458      0   
-===========  ======  =====  =======  =======
-
-
----
 
 ## `xtable` package
 
@@ -828,7 +808,7 @@ xtable(glmbite)
 
 ```
 ## % latex table generated in R 4.1.1 by xtable 1.8-4 package
-## % Sun Nov 28 21:06:57 2021
+## % Mon Nov 29 12:09:39 2021
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrr}
@@ -877,7 +857,7 @@ print.xtable(table1)
 
 ```
 ## % latex table generated in R 4.1.1 by xtable 1.8-4 package
-## % Sun Nov 28 21:06:57 2021
+## % Mon Nov 29 12:09:39 2021
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrr}
@@ -901,7 +881,7 @@ print.xtable(table1)
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Save LaTex code as text file
 
@@ -913,7 +893,7 @@ print.xtable(table1, file = here("results", "table1.txt"))
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Create HTML table
 
@@ -923,7 +903,7 @@ print.xtable(table1, type = "html", caption.placement = "top")
 
 ```
 ## &lt;!-- html table generated in R 4.1.1 by xtable 1.8-4 package --&gt;
-## &lt;!-- Sun Nov 28 21:06:57 2021 --&gt;
+## &lt;!-- Mon Nov 29 12:09:40 2021 --&gt;
 ## &lt;table border=1&gt;
 ## &lt;caption align="top"&gt; Results from logistic regression analysis &lt;/caption&gt;
 ## &lt;tr&gt; &lt;th&gt;  &lt;/th&gt; &lt;th&gt; Estimate &lt;/th&gt; &lt;th&gt; Std. Error &lt;/th&gt; &lt;th&gt; z value &lt;/th&gt; &lt;th&gt; Pr(&amp;gt;|z|) &lt;/th&gt;  &lt;/tr&gt;
@@ -938,7 +918,7 @@ print.xtable(table1, type = "html", caption.placement = "top")
 
 ## `xtable` package
 
-### `print.table()` has even more options
+### `print.xtable()` has even more options
 
 #### Create HTML table
 
@@ -1464,7 +1444,7 @@ print(ORtable, include.rownames = FALSE) # print xtable but remove row numbers
 
 ```
 ## % latex table generated in R 4.1.1 by xtable 1.8-4 package
-## % Sun Nov 28 21:06:58 2021
+## % Mon Nov 29 12:09:41 2021
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{llll}
@@ -1543,7 +1523,7 @@ library(devtools)
 
 ## Using my R package
 
-#### Install and load package from GitHub
+#### Install and load package from [GitHub](https://github.com/ayamitani/oddsratio)
 
 
 ```r
@@ -1656,25 +1636,20 @@ library(formatR)
 
 
 ---
+class: center, middle
 
 ## This presentation is reproducible!
+
+
+### From my GitHub Repo [Reproducibility](https://github.com/ayamitani/Reproducibility)
+
+
 
 Slides created via the R packages:
 
 [**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
 [gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
 
----
-
-
-## Very new `sjPlot` package can show odds ratios
-
-#### [`tab_model()`](https://strengejacke.github.io/sjPlot/articles/tab_model_estimates.html) can create very nice tables with OR (95% CI)
-
-
-```r
-#tab_model(m1, m2, m3, show.p = FALSE)
-```
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
